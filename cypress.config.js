@@ -33,7 +33,8 @@ module.exports = defineConfig({
     "db": {
       "host": "127.0.0.1",
       "user": "root",
-      "password": "123456x@X"
+      "password": "123456x@X",
+      "NO_COLOR":1
     }
   }
 });
