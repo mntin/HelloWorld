@@ -19,7 +19,7 @@ function queryTestDb(query, config) {
 }
 
 module.exports = defineConfig({
-  reporter: 'tinmai',
+  reporter: 'mochawesome',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
