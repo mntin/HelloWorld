@@ -20,6 +20,10 @@ function queryTestDb(query, config) {
 
 module.exports = defineConfig({
   reporter: 'mochawesome',
+  reporterOptions: {
+    reportFilename: "[status]_[datetime]-[name]-report",
+    timestamp: "longDate"
+  }
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
