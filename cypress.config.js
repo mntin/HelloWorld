@@ -19,7 +19,7 @@ function queryTestDb(query, config) {
 }
 
 module.exports = defineConfig({
-  projectId: 'u43wrf',
+  projectId: 'divepq',
   reporter: 'mochawesome',
   reporterOptions: {
     reportFilename: "[status]_[datetime]-[name]-report",
@@ -46,7 +46,7 @@ module.exports = defineConfig({
     adduser_url: '/adduser',
 
   },
-  defaultCommandTimeout:30000
+  defaultCommandTimeout:5000
 });
 
 
