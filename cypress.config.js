@@ -19,11 +19,12 @@ function queryTestDb(query, config) {
 }
 
 module.exports = defineConfig({
+  projectId: 'u43wrf',
   reporter: 'mochawesome',
   reporterOptions: {
     reportFilename: "[status]_[datetime]-[name]-report",
     timestamp: "longDate"
-  }
+  },
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -33,14 +34,19 @@ module.exports = defineConfig({
         }
       });
     },
+    "baseUrl": 'http://localhost:4200'
   },
   env: {
     "db": {
-      "host": "127.0.0.1",
+      "host": "localhost",
       "user": "root",
-      "password": "123456x@X"
-    }
-  }
+      "password": "123456x@X",
+    },
+    users_url: '/users',
+    adduser_url: '/adduser',
+
+  },
+  defaultCommandTimeout:30000
 });
 
 

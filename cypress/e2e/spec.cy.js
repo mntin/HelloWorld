@@ -10,6 +10,7 @@ before(() => {
   //let ctx = await setupDataTestSuite();
   //console.log("before:"+ctx[0])
   //console.log("before:"+ctx[0].email)
+
 })
 
 async function setupDataTestSuite(user){
@@ -51,8 +52,14 @@ describe('e2e', () => {
       console.log("ctx1:"+ctx)
     });*/
 
-    cy.createNewUser("aa","bbS");
-    console.log("ctx2:"+ctx[0].email)
+    cy.createNewUser("aa","bbS").then((user)=>{console.log("user")});
+    //cy.contains('.abc').type('abc');
+    //cy.visit('https://24h.com.vn');
+    cy.contains('.abc').type('abc');
+    if(ctx[0].email){
+      console.log("ctx3:"+ctx[0].email)
+    }
+
 
   })
 })

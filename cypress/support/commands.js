@@ -36,7 +36,6 @@ Cypress.Commands.add('getInputUserFromDB', ()=> {
         "queryDb",
         `SELECT * FROM auto_db.users`
     ).then((users) => {
-        console.log(users[0].email);
         return users;
     });
 
