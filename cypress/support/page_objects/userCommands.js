@@ -2,7 +2,7 @@ export class UserCommands{
 
     createUser(user){
         cy.get('[href="/adduser"]').click()
-        cy.get('#createNameIpts').type(user.name)
+        cy.get('#createNameIpt').type(user.name)
         if (user.gender == 'Male'){
             cy.get('#createMGenRbtn').check('Male')
         }else{
