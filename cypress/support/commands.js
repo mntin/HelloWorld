@@ -26,11 +26,6 @@
 
 //const { defineConfig } = require("cypress");
 
-Cypress.Commands.add('createNewUser', (userName,email)=>{
-    console.log("userName="+userName);
-    console.log("email="+email);
-})
-
 Cypress.Commands.add('getInputUserFromDB', ()=> {
     cy.task(
         "queryDb",

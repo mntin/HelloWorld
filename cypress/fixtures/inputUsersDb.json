@@ -1,0 +1,34 @@
+[
+  {
+    "email": "create_tinmai2710@gmail.com",
+    "name": "Tin Mai",
+    "gender": "Male",
+    "birthday": "26-Oct-2022",
+    "phone": "0979313038",
+    "action": "create"
+  },
+  {
+    "email": "create_tinmai2710@gmail.com",
+    "name": "Tin Mai Nguyen",
+    "gender": "Male",
+    "birthday": "26-Oct-2022",
+    "phone": "0979313038",
+    "action": "update"
+  },
+  {
+    "email": "create_tinmai2710@gmail.com",
+    "name": "Tin Mai Nguyen",
+    "gender": "Male",
+    "birthday": "26-Oct-2022",
+    "phone": "0979313038",
+    "action": "delete"
+  },
+  {
+    "email": "create_tinmai2710@gmail.com",
+    "name": "Tin Mai",
+    "gender": "Male",
+    "birthday": "26-Oct-2022",
+    "phone": "0979313038",
+    "action": "checking"
+  }
+]

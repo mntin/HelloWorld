@@ -22,31 +22,44 @@ export class UserCommands{
     }
 
     updateUser(user){
-        cy.contains(user.email).prev().siblings().first().get('input').check()
-        cy.get('[href="//updateuser"]').click()
-        cy.get('#updateNameIpt').type(user.name)
+        cy.contains(user.email).parent().siblings().first().get('input').check()
+        cy.get('[href="/updateuser"]').click()
+        cy.get('#updateNameIpt').clear().type(user.name)
         if (user.gender == 'Male'){
             cy.get('#updateMGenRbtn').check()
         }else{
             cy.get('#updateFGenRbtn').check()
         }
-        cy.get('#updateEmailIpt').type(user.email)
-        cy.get('[class="dp-picker-input ng-pristine ng-valid ng-touched"]').type(user.birthday)
-        cy.get('#updatePhoneIpt').type(user.phone)
+        cy.get('#updateEmailIpt').clear().type(user.email)
+        //cy.get('[class="dp-picker-input ng-pristine ng-valid ng-touched"]').type(user.birthday)
+        cy.get('#updatePhoneIpt').clear().type(user.phone)
         cy.get('#updateUserSubmit').click()
 
     }
 
+    verifyUserUpdatedSuccess(user){
+        cy.get('#userNotificationAlert').find('span').should('include.text','Updated user: \''+user.name+'\' successfully')
+
+    }
+
     deleteUser(user){
-        cy.contains(user.email).prev().siblings().first().get('input').check()
-        cy.get('[href="//deleteuser"]').click()
+        cy.contains(user.email).parent().siblings().first().get('input').check()
+        cy.get('[href="/deleteuser"]').click()
         cy.get('#userDelBtn').click()
+
+    }
+    verifyUserDeletedSuccess(user){
+        cy.get('#userNotificationAlert').find('span').should('include.text','Deleted user: \''+user.name+'\' successfully')
 
     }
 
     verifyUser(user){
-        console.log("verify email user:"+user.email)
-        console.log("verify name user:"+user.name)
+        cy.get('table').contains('td', user.name).should('be.visible').and('have.text',user.name);
+        cy.get('table').contains('td', user.birthday).should('be.visible').and('have.text',user.birthday);
+        cy.get('table').contains('td', user.gender).should('be.visible').and('have.text',user.gender);
+        cy.get('table').contains('td', user.phone).should('be.visible').and('have.text',user.phone);
+        cy.get('table').contains('td', user.email).should('be.visible').and('have.text',user.email);
+
     }
 
 }

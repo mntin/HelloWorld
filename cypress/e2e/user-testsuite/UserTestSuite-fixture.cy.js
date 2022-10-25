@@ -7,31 +7,24 @@ let updateUser;
 let deleteUser;
 let checkingUser;
 
-async function setupDataTestSuite(user){
-    try {
-        inputUserList = user;
-        for (let i = 0; i < inputUserList.length; i++) {
-            if(inputUserList[i].action == 'create'){
-                createUser = inputUserList[i]
-            }else if(inputUserList[i].action == 'update'){
-                updateUser = inputUserList[i]
-            }else if(inputUserList[i].action == 'delete'){
-                deleteUser = inputUserList[i]
-            }else{
-                checkingUser = inputUserList[i]
-            }
-        }
-    } catch (e) {
-        //handle
-    }
-}
-
 describe('view - create - update - delete user',()=>{
     before('TS setup',() => {
         console.log("Setup testsuite")
-        cy.getInputUserFromDB().then(async (user) => await setupDataTestSuite(user) )
+        cy.fixture('inputUsersDb.json').as('users').then(users =>{
+                users.forEach(user =>{
+                    console.log('user:',user)
+                    if(user.action == 'create'){
+                        createUser = user
+                    }else if(user.action == 'update'){
+                        updateUser = user
+                    }else if(user.action == 'delete'){
+                        deleteUser = user
+                    }else{
+                        checkingUser = user
+                    }
+                })
+        })
 
-        //inputUserList = mysqlConnection.getUserFromDb()
     })
 
     beforeEach('TC setup',() => {
