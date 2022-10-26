@@ -10,7 +10,6 @@ export class UserCommands{
         }
 
         cy.get('#createEmailIpt').type(user.email)
-        //cy.get('.dp-picker-input').type(user.birthday)
         cy.get('#createPhoneIpt').type(user.phone)
         cy.get('#CreateUserSubmit').click()
 
@@ -31,7 +30,6 @@ export class UserCommands{
             cy.get('#updateFGenRbtn').check()
         }
         cy.get('#updateEmailIpt').clear().type(user.email)
-        //cy.get('[class="dp-picker-input ng-pristine ng-valid ng-touched"]').type(user.birthday)
         cy.get('#updatePhoneIpt').clear().type(user.phone)
         cy.get('#updateUserSubmit').click()
 
